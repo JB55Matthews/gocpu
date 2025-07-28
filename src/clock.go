@@ -1,11 +1,11 @@
 package main
 
 type ClockedComponent interface {
-	Tick(ishigh bool)
+	Tick(clk bool)
 }
 
 type Clock struct {
-	ishigh bool
+	clk bool
 	components []ClockedComponent
 
 }
@@ -15,8 +15,8 @@ func (c *Clock) AddComponent(component ClockedComponent) {
 }
 
 func (c *Clock) Tick() {
-	c.ishigh = !c.ishigh
+	c.clk = !c.clk
 	for _, component := range c.components {
-		component.Tick(c.ishigh)
+		component.Tick(c.clk)
 	}
 }

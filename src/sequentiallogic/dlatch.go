@@ -1,4 +1,4 @@
-package latches
+package sequentiallogic
 
 import gates "github.com/jb55matthews/gocpu/src/gates"
 
@@ -21,5 +21,10 @@ func (l *DLatch) SetInputs(clk, d bool) {
 
 	l.srlatch.SetInputs(s, r)
 	
+	l.Q, l.NQ = l.srlatch.Q, l.srlatch.NQ
+}
+
+func (l *DLatch) Init(){
+	l.srlatch.Init()
 	l.Q, l.NQ = l.srlatch.Q, l.srlatch.NQ
 }
