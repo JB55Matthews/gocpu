@@ -1,7 +1,6 @@
 package sequentiallogic
 
-import (gates "github.com/jb55matthews/gocpu/src/gates"
-"fmt")
+import gates "github.com/jb55matthews/gocpu/src/gates"
 
 type SRLatch struct {
     nor1, nor2 gates.NorGate
@@ -9,8 +8,6 @@ type SRLatch struct {
 }
 
 func (l *SRLatch) SetInputs(S, R bool) {
-    // fmt.Println("s, r" ,S, R)
-    // fmt.Println("q, nq", l.Q, l.NQ)
     l.nor1.SetInputs(R, l.NQ)
     l.Q = l.nor1.Output()
 
@@ -19,8 +16,6 @@ func (l *SRLatch) SetInputs(S, R bool) {
 
 	l.nor1.SetInputs(R, l.NQ)
     l.Q = l.nor1.Output()
-    fmt.Printf("")
-    // fmt.Println("q, nq", l.Q, l.NQ)
 	
 }
 

@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	sequentiallogic "github.com/jb55matthews/gocpu/src/sequentiallogic"
+	extras "github.com/jb55matthews/gocpu/src/extras"
 )
 
 func main() {
@@ -55,9 +55,9 @@ func main() {
 	// fmt.Println("Q(prev) ", df.Q, " NQ(prev), ", df.NQ)
 
 
-	var r sequentiallogic.Register
-	r.Init()
-	fmt.Println("all false: ", r.Qs) 
+	// var r sequentiallogic.Register
+	// r.Init()
+	// fmt.Println("all false: ", r.Qs) 
 	
 	// var testbus, zerobus, onebus [32]bool
 	// for i := range testbus {
@@ -75,5 +75,9 @@ func main() {
 	// r.SetInputs(true, r.Qs)
 	// fmt.Println("testbus: ", r.Qs)
 
+
+	d5 := extras.Decoder5{}
+	d5.SetInputs([5]bool{false, false, false, false, false})
+	fmt.Println("output: ", d5.OutputIndex())
 
 }
